@@ -1,0 +1,16 @@
+@import "./variables.css";
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  max-width: 100%;
+  display: block;
+}
+
+body {
+  background: var(--color-bg-page);
+  color: var(--color-text);
+  font-family: var(--font-family);
+  size: var(--fs-body-m);
+  line-height: var(--lh-body);
+}
