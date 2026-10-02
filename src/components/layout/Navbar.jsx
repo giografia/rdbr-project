@@ -1,10 +1,14 @@
 import { Link, NavLink } from "react-router";
+import LoginModal from "../../features/auth/LoginModal";
 
 import styles from "./Navbar.module.css";
 import searchIcon from "../../assets/icons/search.svg";
 import Button from "../ui/Button";
+import { useState } from "react";
 
 function Navbar() {
+  const [showLogin, setShowLogin] = useState(false);
+
   return (
     <nav className={styles.navbar}>
       <div className={`container ${styles.inner}`}>
@@ -25,10 +29,13 @@ function Navbar() {
           </label>
           <div className={styles.actions}>
             <Button variant="primary">Sign up</Button>
-            <Button variant="secondary">Log in</Button>
+            <Button variant="secondary" onClick={() => setShowLogin(true)}>
+              Log in
+            </Button>
           </div>
         </div>
       </div>
+      {showLogin && <LoginModal onClose={() => setShowLogin(false)} />}
     </nav>
   );
 }
