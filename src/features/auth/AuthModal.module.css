@@ -78,6 +78,8 @@
 }
 .uploadIcon {
   transform: rotate(90deg);
+  width: 20px;
+  height: 20px;
 }
 .avatarText {
   display: flex;
@@ -85,10 +87,6 @@
   gap: 2px;
 }
 .avatarTitle {
-  font-size: var(--fs-label-m);
-  font-weight: var(--fw-extrabold);
-}
-.avatarHint {
   font-size: var(--fs-label-m);
   font-weight: var(--fw-extrabold);
 }

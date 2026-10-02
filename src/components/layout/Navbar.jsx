@@ -5,9 +5,10 @@ import { useAuth } from "../../features/auth/authContext";
 import styles from "./Navbar.module.css";
 import searchIcon from "../../assets/icons/search.svg";
 import Button from "../ui/Button";
+import UserMenu from "./UserMenu";
 
 function Navbar() {
-  const { user, isBooting, openLogin, openRegister, logout } = useAuth();
+  const { user, isBooting, openLogin, openRegister } = useAuth();
 
   return (
     <nav className={styles.navbar}>
@@ -27,27 +28,19 @@ function Navbar() {
             <img src={searchIcon} alt="" />
             <input type="text" placeholder="Search films and live events" />
           </label>
-          {!isBooting && (
-            <div className={styles.actions}>
-              {user ? (
-                <>
-                  <span>{user.username}</span>
-                  <Button variant="secondary" onClick={logout}>
-                    Log out
-                  </Button>
-                </>
-              ) : (
-                <>
-                  <Button variant="primary" onClick={openRegister}>
-                    Sign up
-                  </Button>
-                  <Button variant="secondary" onClick={openLogin}>
-                    Log in
-                  </Button>
-                </>
-              )}
-            </div>
-          )}
+          {!isBooting &&
+            (user ? (
+              <UserMenu />
+            ) : (
+              <div className={styles.actions}>
+                <Button variant="primary" onClick={openRegister}>
+                  Sign up
+                </Button>
+                <Button variant="secondary" onClick={openLogin}>
+                  Log in
+                </Button>
+              </div>
+            ))}
         </div>
       </div>
     </nav>
