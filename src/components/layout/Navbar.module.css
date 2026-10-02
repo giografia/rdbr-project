@@ -69,27 +69,3 @@
 .search input::placeholder {
   color: var(--color-text);
 }
-
-.button {
-  height: 40px;
-  padding: 0 20px;
-  border: none;
-  border-radius: 999px;
-  font-size: var(--fs-button);
-  font-weight: var(--fw-extrabold);
-  cursor: pointer;
-  transition: opacity 0.2s;
-}
-.button:hover {
-  opacity: 0.85;
-}
-.signUp {
-  composes: button; /* css modules feature - gets all .button styles plus its own */
-  background: var(--color-accent);
-  color: var(--color-text);
-}
-.logIn {
-  composes: button;
-  background: var(--color-text);
-  color: var(--color-bg-page);
-}

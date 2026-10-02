@@ -1,0 +1,43 @@
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.label {
+  font-size: var(--fs-label-s);
+  font-weight: var(--fw-semibold);
+}
+.inputWrapper {
+  position: relative;
+}
+.inputWrapper input {
+  width: 100%;
+  height: 40px;
+  padding: 0 40px 0 16px;
+  background: var(--color-bg-surface);
+  border: 1px solid transparent;
+  border-radius: 12px;
+  color: var(--color-text);
+  font-size: var(--fs-body-s);
+  outline: none;
+  transition: border-color 0.2s;
+}
+.inputWrapper input::placeholder {
+  color: var(--color-text-secondary);
+}
+.inputWrapper input:focus {
+  botder-color: var(--color-text-muted);
+}
+.inputWrapper .invalid {
+  border-color: var(--color-accent);
+}
+.icon {
+  position: absolute;
+  right: 16px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.error {
+  font-size: var(--fs-body-s);
+  color: var(--color-accent);
+}

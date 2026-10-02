@@ -1,6 +1,8 @@
 import { Link, NavLink } from "react-router";
+
 import styles from "./Navbar.module.css";
 import searchIcon from "../../assets/icons/search.svg";
+import Button from "../ui/Button";
 
 function Navbar() {
   return (
@@ -22,8 +24,8 @@ function Navbar() {
             <input type="text" placeholder="Search films and live events" />
           </label>
           <div className={styles.actions}>
-            <button className={styles.signUp}>Sign up</button>
-            <button className={styles.logIn}>Log in</button>
+            <Button variant="primary">Sign up</Button>
+            <Button variant="secondary">Log in</Button>
           </div>
         </div>
       </div>
