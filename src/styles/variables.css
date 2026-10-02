@@ -2,7 +2,7 @@
   /* background */
   --color-bg-page: #070c1c;
   --color-bg-surface: #1e2031;
-  --color-bg-elevated: #2a2c2d;
+  --color-bg-elevated: #2a2c3d;
 
   /* text */
   --color-text: #ffffff;
@@ -30,7 +30,7 @@
   --fs-h2: 20px; /* modal titles */
   --fs-h3: 18px; /* card titles */
   --fs-button: 14px; /* extrabold */
-  --fs-labem-m: 14px; /* semibold */
+  --fs-label-m: 14px; /* semibold */
   --fs-label-s: 12px; /* semibold badges */
   --fs-overline: 12px; /* semibold */
   --fs-body-1: 16px;
