@@ -1,0 +1,44 @@
+.overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background: rgba(7, 12, 28, 0.6);
+  backdrop-filter: blur(8px);
+}
+.panel {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  width: 100%;
+  max-width: 403px;
+  max-height: 100%;
+  overflow-y: auto; /* tall modals dont overflow and scrolls inside itself */
+  padding: 32px;
+  background: var(--color-bg-page);
+  border: 1px solid var(--color-bg-elevated);
+  border-radius: 28px;
+  box-shadow: 0 20px 50px -10px rgba(0, 0, 0, 0.2);
+}
+.close {
+  position: absolute;
+  top: 32px;
+  right: 32px;
+  display: grid;
+  place-items: center;
+  width: 24px;
+  height: 24px;
+  padding: 0;
+  background: none;
+  border: none;
+  cursor: pointer;
+  opacity: 0.8;
+  transition: opacity 0.2s;
+}
+.close:hover {
+  opacity: 1;
+}
