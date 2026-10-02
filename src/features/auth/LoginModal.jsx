@@ -1,4 +1,8 @@
 import { useForm } from "react-hook-form";
+import { useState } from "react";
+
+import { useAuth } from "./authContext";
+import { applyServerErrors } from "../../utils/applyServerErrors";
 
 import Modal from "../../components/ui/Modal";
 import Button from "../../components/ui/Button";
@@ -8,14 +12,25 @@ import styles from "./LoginModal.module.css";
 const EMAIL_PATTERN = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 
 function LoginModal({ onClose, onSwitchToRegister }) {
+  const { login } = useAuth();
+
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors, touchedFields, isValid, isSubmitting },
   } = useForm({ mode: "onTouched" });
 
+  const [serverError, setServerError] = useState(null);
+
   async function onSubmit(data) {
-    console.log(data); // replace with api call !!!!!
+    setServerError(null);
+    try {
+      await login(data);
+    } catch (error) {
+      if (applyServerErrors(error, setError)) return;
+      setServerError(error.message);
+    }
   }
 
   return (
@@ -59,6 +74,7 @@ function LoginModal({ onClose, onSwitchToRegister }) {
             },
           })}
         />
+        {serverError && <p className={styles.formError}>{serverError}</p>}
 
         <Button
           type="submit"

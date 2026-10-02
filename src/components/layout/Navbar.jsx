@@ -1,13 +1,13 @@
 import { Link, NavLink } from "react-router";
-import LoginModal from "../../features/auth/LoginModal";
+
+import { useAuth } from "../../features/auth/authContext";
 
 import styles from "./Navbar.module.css";
 import searchIcon from "../../assets/icons/search.svg";
 import Button from "../ui/Button";
-import { useState } from "react";
 
 function Navbar() {
-  const [showLogin, setShowLogin] = useState(false);
+  const { user, isBooting, openLogin, openRegister, logout } = useAuth();
 
   return (
     <nav className={styles.navbar}>
@@ -27,15 +27,29 @@ function Navbar() {
             <img src={searchIcon} alt="" />
             <input type="text" placeholder="Search films and live events" />
           </label>
-          <div className={styles.actions}>
-            <Button variant="primary">Sign up</Button>
-            <Button variant="secondary" onClick={() => setShowLogin(true)}>
-              Log in
-            </Button>
-          </div>
+          {!isBooting && (
+            <div className={styles.actions}>
+              {user ? (
+                <>
+                  <span>{user.username}</span>
+                  <Button variant="secondary" onClick={logout}>
+                    Log out
+                  </Button>
+                </>
+              ) : (
+                <>
+                  <Button variant="primary" onClick={openRegister}>
+                    Sign up
+                  </Button>
+                  <Button variant="secondary" onClick={openLogin}>
+                    Log in
+                  </Button>
+                </>
+              )}
+            </div>
+          )}
         </div>
       </div>
-      {showLogin && <LoginModal onClose={() => setShowLogin(false)} />}
     </nav>
   );
 }
