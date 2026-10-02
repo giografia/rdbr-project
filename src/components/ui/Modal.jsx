@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import closeIcon from "../../assets/icons/close.svg";
 import styles from "./Modal.module.css";
 
-function Modal({ onClose, children, className = "" }) {
+function Modal({ onClose, children, className = "", maxWidth }) {
   //close when clicked only on overlay
   function handleOverlayClick(e) {
     if (e.target === e.currentTarget) {
@@ -38,6 +38,7 @@ function Modal({ onClose, children, className = "" }) {
     <div className={styles.overlay} onMouseDown={handleOverlayClick}>
       <div
         className={`${styles.panel} ${className}`}
+        style={maxWidth ? { maxWidth } : undefined}
         role="dialog"
         aria-modal="true"
       >

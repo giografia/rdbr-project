@@ -1,5 +1,7 @@
 import { useId } from "react";
+
 import checkIcon from "../../assets/icons/check.svg";
+import errorIcon from "../../assets/icons/error.svg";
 import styles from "./Input.module.css";
 
 function Input({ label, error, isValid, ref, ...rest }) {
@@ -7,7 +9,10 @@ function Input({ label, error, isValid, ref, ...rest }) {
 
   return (
     <div className={styles.field}>
-      <label htmlFor={id} className={styles.label}>
+      <label
+        htmlFor={id}
+        className={`${styles.label} ${error ? styles.labelError : ""}`}
+      >
         {label}
       </label>
 
@@ -19,7 +24,11 @@ function Input({ label, error, isValid, ref, ...rest }) {
           aria-invalid={!!error}
           {...rest}
         />
-        {isValid && <img src={checkIcon} alt="" className={styles.icon} />}
+        {error ? (
+          <img src={errorIcon} alt="" className={styles.icon} />
+        ) : (
+          isValid && <img src={checkIcon} alt="" className={styles.icon} />
+        )}
       </div>
       {error && <p className={styles.error}>{error}</p>}
     </div>

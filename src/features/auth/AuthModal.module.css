@@ -1,0 +1,107 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding-right: 32px;
+}
+.title {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-extrabold);
+}
+.subtitle {
+  font-size: var(--fs-body-s);
+  color: var(--color-text-secondary);
+}
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+.formError {
+  font-size: var(--fs-body-s);
+  color: var(--color-accent);
+  text-align: center;
+}
+.footer {
+  text-align: center;
+  font-size: var(--fs-body-s);
+  color: var(--color-text-secondary);
+}
+.switchLink {
+  padding: 0;
+  background: none;
+  border: none;
+  color: var(--color-accent);
+  font-size: inherit;
+  font-weight: var(--fw-extrabold);
+  cursor: pointer;
+}
+
+.registerModal {
+  max-width: 475px;
+}
+.avatarField {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.avatar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  width: fit-content;
+  cursor: pointer;
+}
+.fileInput {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  opacity: 0;
+}
+.avatar:focus-within .avatarBox {
+  box-shadow: 0 0 0 1px var(--color-text-secondary);
+}
+.avatarBox {
+  display: grid;
+  place-items: center;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  overflow: hidden;
+  background: var(--color-bg-surface);
+  border-radius: 8px;
+}
+.avatarImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.uploadIcon {
+  transform: rotate(90deg);
+}
+.avatarText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+}
+.avatarTitle {
+  font-size: var(--fs-label-m);
+  font-weight: var(--fw-extrabold);
+}
+.avatarHint {
+  font-size: var(--fs-label-m);
+  font-weight: var(--fw-extrabold);
+}
+.avatarHint {
+  font-size: var(--fs-body-s);
+  color: var(--color-text-secondary);
+}
+.fieldError {
+  font-size: var(--fs-body-s);
+  color: var(--color-accent);
+}
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}

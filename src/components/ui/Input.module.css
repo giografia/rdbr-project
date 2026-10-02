@@ -41,3 +41,6 @@
   font-size: var(--fs-body-s);
   color: var(--color-accent);
 }
+.labelError {
+  color: var(--color-accent);
+}

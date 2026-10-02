@@ -1,14 +1,16 @@
 import { useEffect, useRef, useState } from "react";
+
 import * as authApi from "../../api/auth";
 import { AuthContext } from "./authContext";
 import LoginModal from "./LoginModal";
+import RegisterModal from "./RegisterModal";
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
   const [isBooting, setIsBooting] = useState(() =>
     Boolean(localStorage.getItem("token")),
   );
-  const [activeModal, setActiveModal] = useState(null); // login or register or null
+  const [activeModal, setActiveModal] = useState(null);
   const pendingAction = useRef(null);
 
   useEffect(() => {
@@ -81,7 +83,12 @@ export function AuthProvider({ children }) {
           onSwitchToRegister={() => setActiveModal("register")}
         />
       )}
-      {/* registration modal will be here in future */}
+      {activeModal === "register" && (
+        <RegisterModal
+          onClose={closeModal}
+          onSwitchToLogin={() => setActiveModal("login")}
+        />
+      )}
     </AuthContext.Provider>
   );
 }
