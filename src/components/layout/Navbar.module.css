@@ -1,0 +1,95 @@
+.navbar {
+  padding: 24px 0;
+}
+.inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left {
+  display: flex;
+  align-items: center;
+  gap: 40px;
+}
+.logo {
+  font-size: 18px;
+  font-weight: var(--fw-extrabold);
+  color: var(--color-text);
+  text-decoration: none;
+}
+.logo span {
+  color: var(--color-accent);
+}
+.link {
+  font-size: var(--fs-overline);
+  font-weight: var(--fs-semibold);
+  letter-spacing: var(--ls-overline);
+  text-transform: uppercase;
+  color: var(--color-text);
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+.link:hover {
+  opacity: 0.7;
+}
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+.actions {
+  display: flex;
+  gap: 12px;
+}
+
+.search {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 380px;
+  height: 40px;
+  padding: 0 16px;
+  background: var(--tint-white);
+  border-radius: 999px;
+  cursor: text;
+}
+.search:focus-within {
+  box-shadow: 0 0 0 1px var(--color-text-secondary);
+}
+.search input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  color: var(--color-text);
+  font-size: var(--fs-body-m);
+}
+.search input::placeholder {
+  color: var(--color-text);
+}
+
+.button {
+  height: 40px;
+  padding: 0 20px;
+  border: none;
+  border-radius: 999px;
+  font-size: var(--fs-button);
+  font-weight: var(--fw-extrabold);
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+.button:hover {
+  opacity: 0.85;
+}
+.signUp {
+  composes: button; /* css modules feature - gets all .button styles plus its own */
+  background: var(--color-accent);
+  color: var(--color-text);
+}
+.logIn {
+  composes: button;
+  background: var(--color-text);
+  color: var(--color-bg-page);
+}
