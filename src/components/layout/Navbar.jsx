@@ -7,11 +7,11 @@ import searchIcon from "../../assets/icons/search.svg";
 import Button from "../ui/Button";
 import UserMenu from "./UserMenu";
 
-function Navbar() {
+function Navbar({ overlay = false }) {
   const { user, isBooting, openLogin, openRegister } = useAuth();
 
   return (
-    <nav className={styles.navbar}>
+    <nav className={`${styles.navbar} ${overlay ? styles.overlay : ""}`}>
       <div className={`container ${styles.inner}`}>
         <div className={styles.left}>
           <Link to="/" className={styles.logo}>

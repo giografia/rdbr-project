@@ -1,10 +1,11 @@
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
 import Navbar from "./Navbar";
 
 function PageLayout() {
+  const { pathname } = useLocation();
   return (
     <>
-      <Navbar />
+      <Navbar overlay={pathname === "/"} />
       <main>
         <Outlet />
       </main>

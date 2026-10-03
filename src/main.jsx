@@ -7,7 +7,14 @@ import App from "./App.jsx";
 import "./styles/global.css";
 import { AuthProvider } from "./features/auth/AuthProvider";
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      retry: 1,
+      refetchOnWindowFocus: false,
+    },
+  },
+});
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>

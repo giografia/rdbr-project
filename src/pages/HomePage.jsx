@@ -1,7 +1,9 @@
+import HeroCarousel from "../features/movies/HeroCarousel";
+
 function HomePage() {
   return (
     <>
-      <h1>Home Page</h1>
+      <HeroCarousel />
     </>
   );
 }

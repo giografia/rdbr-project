@@ -10,12 +10,14 @@
   font-size: var(--fs-button);
   font-weight: var(--fw-extrabold);
   cursor: pointer;
+  text-decoration: none;
   transition:
     opacity 0.2s,
     background 0.2s;
 }
-.button:hover:not(:disabled) {
-  opacity: 0.85;
+.button img {
+  width: 16px;
+  height: 16px;
 }
 .button:disabled {
   background: var(--color-text-muted);
@@ -33,6 +35,12 @@
 .ghost {
   background: var(--tint-white);
   color: var(--color-text);
+}
+.ghost:hover:not(:disabled),
+.ghost:focus-visible {
+  opacity: 1;
+  background: var(--color-text-secondary);
+  outline: none;
 }
 .fullWidth {
   width: 100%;

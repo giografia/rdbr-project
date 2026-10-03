@@ -69,3 +69,15 @@
 .search input::placeholder {
   color: var(--color-text);
 }
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 20;
+  background: linear-gradient(
+    180deg,
+    rgba(7, 12, 28, 0.6) 0%,
+    transparent 100%
+  );
+}
