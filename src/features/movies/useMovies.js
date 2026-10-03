@@ -1,9 +1,11 @@
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import {
   getFeaturedMovies,
   getNowPlayingMovies,
   getComingSoonMovies,
+  notifyMe,
 } from "../../api/movies";
+import { useAuth } from "../auth/authContext";
 
 export function useFeaturedMovies() {
   return useQuery({
@@ -18,9 +20,19 @@ export function useNowPlayingMovies() {
   });
 }
 export function useComingSoonMovies() {
+  const { user, isBooting } = useAuth();
   return useQuery({
-    queryKey: ["movies", "coming-soon"],
+    queryKey: ["movies", "coming-soon", user?.id ?? "guest"],
     queryFn: getComingSoonMovies,
+    enabled: !isBooting, //waiting until someone logs in
+  });
+}
+export function useNotifyMe() {
+  const queryClient = useQueryClient();
+  return useMutation({
+    mutationFn: notifyMe, //refetching data from server after a change
+    onSuccess: () =>
+      queryClient.invalidateQueries({ queryKey: ["movies", "coming-soon"] }),
   });
 }
 

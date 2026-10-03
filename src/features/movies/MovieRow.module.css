@@ -1,0 +1,48 @@
+.section {
+  padding: 40px 0;
+}
+.section + .section {
+  border-top: 1px solid var(--color-bg-elevated);
+}
+.header {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin-bottom: 24px;
+}
+.title {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-extrabold);
+}
+.uppercase {
+  text-transform: uppercase;
+}
+.seeAll {
+  color: var(--color-accent);
+  font-size: var(--fs-label-s);
+  font-weight: var(--fw-semibold);
+  text-decoration: none;
+}
+.seeAll:hover {
+  text-decoration: underline;
+}
+.row {
+  display: flex;
+  align-items: flex-start;
+  gap: 18px;
+  overflow: hidden;
+  padding-bottom: 4px;
+  mask-image: linear-gradient(to right, #000 calc(100% - 80px), transparent);
+  /* disabled scrolling in row, overflow fades away */
+}
+.skeleton {
+  flex-shrink: 0;
+  border-radius: 20px;
+  background: var(--color-bg-surface);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}
