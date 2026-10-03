@@ -47,3 +47,17 @@ export function formatLongDate(dateString) {
 export function getWeekday(dateString) {
   return WEEKDAYS[parseLocalDate(dateString).getDay()];
 }
+export function toISODate(date) {
+  const y = date.getFullYear();
+  const m = String(date.getMonth() + 1).padStart(2, "0");
+  const d = String(date.getDate()).padStart(2, "0");
+  return `${y}-${m}-${d}`;
+}
+export function getNextDays(count) {
+  const today = new Date();
+  return Array.from({ length: count }, (_, i) =>
+    toISODate(
+      new Date(today.getFullYear(), today.getMonth(), today.getDate() + i),
+    ),
+  );
+}
