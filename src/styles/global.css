@@ -20,3 +20,9 @@ body {
   margin: 0 auto;
   padding: 0 60px;
 }
+
+@media (min-width: 1920px) {
+  html {
+    zoom: 1.1111;
+  }
+}
