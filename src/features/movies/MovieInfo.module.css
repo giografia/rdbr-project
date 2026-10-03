@@ -1,0 +1,42 @@
+.heading {
+  margin-bottom: 20px;
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-extrabold);
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.label {
+  color: var(--color-text-secondary);
+  font-size: var(--fs-overline);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-overline);
+  text-transform: uppercase;
+}
+.value {
+  margin-top: 4px;
+  font-size: var(--fs-label-m);
+  font-weight: var(--fw-semibold);
+}
+.note {
+  margin-top: 24px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(226, 126, 4, 0.1);
+  color: var(--color-warning);
+}
+.noteTitle {
+  font-size: var(--fs-overline);
+  font-weight: var(--fw-semibold);
+  text-transform: uppercase;
+}
+.noteText {
+  margin-top: 6px;
+  font-size: var(--fs-body-s);
+}
+.noteText strong {
+  margin-right: 4px;
+  font-weight: var(--fw-extrabold);
+}

@@ -11,6 +11,7 @@ export function getRecentlyViewed() {
 export function addRecentlyViewed(movie) {
   const entry = {
     id: movie.id,
+    slug: movie.slug,
     title: movie.title,
     posterUrl: movie.posterUrl,
     runtimeMinutes: movie.runtimeMinutes,

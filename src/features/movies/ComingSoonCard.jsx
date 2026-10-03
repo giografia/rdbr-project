@@ -16,7 +16,7 @@ function ComingSoonCard({ movie }) {
     .join(" · ");
 
   function handleNotify() {
-    requireAuth(() => notify.mutate(movie.id));
+    requireAuth(() => notify.mutate(movie.slug));
   }
 
   return (

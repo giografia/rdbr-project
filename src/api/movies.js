@@ -15,3 +15,11 @@ export async function getComingSoonMovies() {
 export async function notifyMe(movieId) {
   await apiFetch(`/movies/${movieId}/notify`, { method: "POST" });
 }
+export async function getMovie(id) {
+  const res = await apiFetch(`/movies/${id}`);
+  return res.data;
+}
+export async function getMovieSessions(id, date) {
+  const res = await apiFetch(`/movies/${id}/sessions?date=${date}`);
+  return res.data;
+}

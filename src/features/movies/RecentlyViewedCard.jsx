@@ -9,7 +9,7 @@ function RecentlyViewedCard({ movie }) {
     .join(" · ");
 
   return (
-    <Link to={`/movies/${movie.id}`} className={styles.card}>
+    <Link to={`/movies/${movie.slug}`} className={styles.card}>
       <img
         src={movie.posterUrl}
         alt=""
@@ -19,7 +19,7 @@ function RecentlyViewedCard({ movie }) {
       <div className={styles.body}>
         <h3 className={styles.title}>{movie.title}</h3>
         <p className={styles.meta}>{meta}</p>
-        <Badge variant="accent">{movie.ageRating}</Badge>
+        <Badge variant="accent">{movie.ageRating.code}</Badge>
       </div>
     </Link>
   );

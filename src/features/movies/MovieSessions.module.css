@@ -1,0 +1,62 @@
+.heading {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-extrabold);
+}
+.subtitle {
+  margin-top: 4px;
+  font-size: var(--fs-body-s);
+  color: var(--color-text-secondary);
+}
+.picker {
+  margin-top: 20px;
+}
+.restricted {
+  margin-top: 24px;
+  padding: 14px 16px;
+  border-radius: 12px;
+  background: rgba(226, 126, 4, 0.1);
+  color: var(--color-warning);
+  font-size: var(--fs-body-m);
+}
+.venues {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+  margin-top: 32px;
+}
+.venueName {
+  margin-bottom: 12px;
+  font-size: var(--fs-label-m);
+  font-weight: var(--fw-extrabold);
+}
+.halls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+.hall {
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--color-bg-surface);
+}
+.hallName {
+  margin-bottom: 12px;
+  font-size: var(--fs-label-s);
+  font-weight: var(--fw-semibold);
+}
+.tickets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.skeleton {
+  height: 140px;
+  border-radius: 16px;
+  background: var(--color-bg-surface);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}

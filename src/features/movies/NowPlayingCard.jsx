@@ -10,7 +10,7 @@ function NowPlayingCard({ movie }) {
     .join(" · ");
 
   return (
-    <Link to={`/movies/${movie.id}`} className={styles.card}>
+    <Link to={`/movies/${movie.slug}`} className={styles.card}>
       <img
         src={movie.posterUrl}
         alt=""

@@ -1,0 +1,22 @@
+.body {
+  padding-top: 48px;
+}
+.layout {
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  align-items: start;
+  gap: 64px;
+}
+.heroSkeleton {
+  height: 580px;
+  background: var(--color-bg-surface);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+.message {
+  padding-top: 160px;
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.6;
+  }
+}

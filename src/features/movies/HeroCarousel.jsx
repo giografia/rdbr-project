@@ -93,7 +93,7 @@ function HeroCarousel() {
                 <p className={styles.synopsis}>{movie.synopsis}</p>
 
                 <div className={styles.actions}>
-                  <Button to={`/movies/${movie.id}`}>
+                  <Button to={`/movies/${movie.slug}`}>
                     <img src={ticketIcon} alt="" />
                     Buy tickets
                   </Button>

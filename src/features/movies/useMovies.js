@@ -1,10 +1,13 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
+
 import {
   getFeaturedMovies,
   getNowPlayingMovies,
   getComingSoonMovies,
   notifyMe,
 } from "../../api/movies";
+import { getMovie } from "../../api/movies";
+import { getMovieSessions } from "../../api/movies";
 import { useAuth } from "../auth/authContext";
 
 export function useFeaturedMovies() {
@@ -33,6 +36,16 @@ export function useNotifyMe() {
     mutationFn: notifyMe, //refetching data from server after a change
     onSuccess: () =>
       queryClient.invalidateQueries({ queryKey: ["movies", "coming-soon"] }),
+  });
+}
+export function useMovie(id) {
+  return useQuery({ queryKey: ["movie", id], queryFn: () => getMovie(id) });
+}
+export function useMovieSessions(id, date) {
+  return useQuery({
+    queryKey: ["movie", id, "sessions", date],
+    queryFn: () => getMovieSessions(id, date),
+    enabled: Boolean(date), //coming soon film could have no date yet
   });
 }
 
