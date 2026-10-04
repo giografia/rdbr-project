@@ -1,0 +1,48 @@
+.page {
+  padding: 32px 0 64px;
+}
+.title {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-extrabold);
+}
+.tabs {
+  display: flex;
+  gap: 28px;
+  margin: 20px 0 32px;
+  border-bottom: 1px solid var(--color-bg-elevated);
+}
+.tab {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: -1px;
+  padding: 10px 2px;
+  border: none;
+  border-bottom: 2px solid transparent;
+  background: none;
+  color: var(--color-text-secondary);
+  font-size: var(--fs-label-m);
+  font-weight: var(--fw-semibold);
+  cursor: pointer;
+}
+.active {
+  border-bottom-color: var(--color-accent);
+  color: var(--color-text);
+}
+.count {
+  display: grid;
+  place-items: center;
+  min-width: 18px;
+  height: 18px;
+  padding: 0 5px;
+  border-radius: 999px;
+  background: var(--color-accent);
+  font-size: 11px;
+  font-weight: var(--fw-extrabold);
+}
+.guest {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 120px;
+}

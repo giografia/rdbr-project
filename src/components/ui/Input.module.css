@@ -20,16 +20,23 @@
   color: var(--color-text);
   font-size: var(--fs-body-s);
   outline: none;
-  transition: border-color 0.2s;
+  transition: background 0.2s;
+}
+.inputWrapper input:hover:not(:disabled) {
+  background: var(--color-bg-elevated);
 }
 .inputWrapper input::placeholder {
   color: var(--color-text-secondary);
+  cursor: not-allowed;
 }
 .inputWrapper input:focus {
   botder-color: var(--color-text-muted);
 }
 .inputWrapper .invalid {
   border-color: var(--color-accent);
+}
+.inputWrapper .valid {
+  border-color: var(--color-success);
 }
 .icon {
   position: absolute;
@@ -43,4 +50,11 @@
 }
 .labelError {
   color: var(--color-accent);
+}
+.action {
+  position: absolute;
+  top: 50%;
+  right: 12px;
+  display: flex;
+  transform: translateY(-50%);
 }

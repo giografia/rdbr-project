@@ -61,3 +61,31 @@ export function getNextDays(count) {
     ),
   );
 }
+export function formatShortDate(dateString) {
+  const date = parseLocalDate(dateString);
+  return `${WEEKDAYS[date.getDay()]} ${date.getDate()} ${MONTHS[date.getMonth()].slice(0, 3)}`;
+}
+export function formatRefundDeadline(dateString, time, hoursBefore = 2) {
+  const [hours, minutes] = time.split(":").map(Number);
+  const deadline = parseLocalDate(dateString);
+  deadline.setHours(hours - hoursBefore, minutes);
+
+  const hh = String(deadline.getHours()).padStart(2, "0");
+  const mm = String(deadline.getMinutes()).padStart(2, "0");
+  return `${hh}:${mm}, ${formatShortDate(toISODate(deadline))}`;
+}
+export function isoToDisplayDate(iso) {
+  const [year, month, day] = iso.splt("-");
+  return `${day}/${month}/${year}`;
+}
+export function displayToIsoDate(text) {
+  const match = text.trim().match(/^(\d{2})\/(\d{2})\/(\d{4})$/);
+  if (!match) return null;
+
+  const [, day, month, year] = match;
+  const date = new Date(Number(year), Number(month) - 1, Number(day));
+
+  if (date.getMonth() !== Number(month) - 1 || date.getDate() !== Number(day))
+    return null;
+  return `${year}-${month}-${day}`;
+}

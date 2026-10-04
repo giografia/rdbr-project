@@ -97,7 +97,7 @@ function UserMenu() {
               My Profile
             </Link>
             <Link
-              to="/profile#tickets"
+              to="/profile?tab=tickets"
               className={styles.item}
               onClick={close}
               role="menuitem"

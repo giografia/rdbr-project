@@ -20,6 +20,9 @@ body {
   margin: 0 auto;
   padding: 0 60px;
 }
+input[type="date"] {
+  color-scheme: dark;
+}
 
 @media (min-width: 1920px) {
   html {

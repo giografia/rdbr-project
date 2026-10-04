@@ -69,6 +69,7 @@ export function AuthProvider({ children }) {
     register,
     logout,
     requireAuth,
+    updateUser: setUser,
     openLogin: () => setActiveModal("login"),
     openRegister: () => setActiveModal("register"),
     closeModal,
