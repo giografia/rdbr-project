@@ -70,10 +70,10 @@ function FiltersPanel({
           onChange={(formats) => onChange({ formats })}
         />
       </div>
-      <div className={styles.action}>
+      <div className={styles.section}>
         <CheckboxGroup
           title="Language"
-          options={options.language.map((l) => ({
+          options={options.languages.map((l) => ({
             value: l.slug,
             label: l.name,
           }))}

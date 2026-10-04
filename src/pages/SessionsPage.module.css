@@ -1,0 +1,71 @@
+.page {
+  padding: 32px 0 48px;
+}
+.header {
+  margin-bottom: 28px;
+}
+.title {
+  font-size: var(--fs-h1);
+  font-weight: var(--fw-extrabold);
+}
+.subtitle {
+  margin-top: 4px;
+  font-size: var(--fs-body-s);
+  color: var(--color-text-secondary);
+}
+.layout {
+  display: grid;
+  grid-template-columns: 300px 1fr;
+  align-items: start;
+  gap: 44px;
+}
+.toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+.counter {
+  font-size: var(--fs-label-m);
+  font-weight: var(--fw-semibold);
+}
+.empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+.skeletonGroup {
+  padding: 24px 0;
+}
+.skeletonHeader {
+  width: 260px;
+  height: 72px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+  background: var(--color-bg-surface);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+.skeletonCards {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+.skeletonCard {
+  width: 252px;
+  height: 104px;
+  border-radius: 16px;
+  background: var(--color-bg-surface);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+.panelSkeleton {
+  height: 900px;
+  border-radius: 20px;
+  background: var(--color-bg-surface);
+  animation: pulse 1.5s ease-in-out infinite;
+}
+@keyframes pulse {
+  50% {
+    opacity: 0.5;
+  }
+}

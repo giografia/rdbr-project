@@ -1,0 +1,39 @@
+.group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 24px 0;
+}
+.group + .group {
+  border-top: 1px solid var(--color-bg-elevated);
+}
+.header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.poster {
+  width: 48px;
+  height: 72px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.title {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-extrabold);
+}
+.meta {
+  margin-top: 6px;
+  font-size: var(--fs-body-s);
+  color: var(--color-text-secondary);
+}
+.sessions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}

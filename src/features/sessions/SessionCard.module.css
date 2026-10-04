@@ -1,0 +1,72 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 252px;
+  padding: 15px;
+  border: none;
+  border-radius: 16px;
+  background: var(--color-bg-surface);
+  color: var(--color-text);
+  text-align: left;
+  cursor: pointer;
+}
+.card:disabled {
+  opacity: 0.4;
+  cursor: not-allowed;
+}
+.row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  width: 100%;
+}
+.time {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-extrabold);
+}
+.format {
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--color-bg-elevated);
+  font-size: var(--fs-label-s);
+  font-weight: var(--fw-semibold);
+}
+.muted {
+  font-size: var(--fs-body-s);
+  color: var(--color-text-secondary);
+}
+.seats {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  color: var(--color-success);
+  font-size: var(--fs-body-s);
+}
+.low {
+  color: var(--color-accent);
+}
+.seatIcon {
+  width: 12px;
+  height: 12px;
+  background: currentColor;
+  mask-position: center;
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  -webkit-mask-position: center;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-size: contain;
+}
+.place {
+  overflow: hidden;
+  font-size: var(--fs-body-s);
+  font-weight: var(--fw-semibold);
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.price {
+  font-size: var(--fs-label-m);
+  font-weight: var(--fw-extrabold);
+}
+/*because img cant change color we use ticket icon as a mask over box so gets color from box which is under it */

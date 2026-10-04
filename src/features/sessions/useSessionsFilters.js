@@ -12,7 +12,7 @@ function readList(searchParams, key) {
 export function useSessionFilters() {
   const [searchParams, setSearchParams] = useSearchParams();
   const dates = getNextDays(DAYS_SHOWN);
-  const dateParam = searchParams.get("data");
+  const dateParam = searchParams.get("date");
 
   const filters = {
     venues: readList(searchParams, "venues"),

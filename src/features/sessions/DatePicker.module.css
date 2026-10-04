@@ -44,3 +44,10 @@
 .small .day {
   font-size: var(--fs-label-s);
 }
+.small .date {
+  background: var(--color-bg-elevated);
+}
+.small .selected,
+.small .selected:hover {
+  background: var(--color-accent);
+}
