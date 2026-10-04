@@ -33,7 +33,12 @@
   overflow: hidden;
   padding-bottom: 4px;
   mask-image: linear-gradient(to right, #000 calc(100% - 80px), transparent);
+  overflow-x: auto;
+  scrollbar-width: none;
   /* disabled scrolling in row, overflow fades away */
+}
+.row::-webkit-scrollbar {
+  display: none;
 }
 .skeleton {
   flex-shrink: 0;

@@ -1,0 +1,94 @@
+.card {
+  display: flex;
+  gap: 20px;
+  padding: 18px;
+  border-radius: 20px;
+  background: var(--color-bg-surface);
+}
+.poster {
+  flex-shrink: 0;
+  width: 80px;
+  height: 106px;
+  border-radius: 10px;
+  object-fit: cover;
+}
+.main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  gap: 12px;
+  min-width: 0;
+}
+.titleRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.title {
+  font-size: var(--fs-h3);
+  font-weight: var(--fw-extrabold);
+}
+.runtime {
+  font-size: var(--fs-body-s);
+  color: var(--color-text-secondary);
+}
+.facts {
+  display: flex;
+  gap: 32px;
+}
+.label {
+  color: var(--color-text-secondary);
+  font-size: var(--fs-overline);
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-overline);
+  text-transform: uppercase;
+}
+.value {
+  margin-top: 2px;
+  font-size: var(--fs-label-s);
+  font-weight: var(--fw-semibold);
+}
+.seats {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+}
+.seat {
+  padding: 3px 8px;
+  border-radius: 6px;
+  background: var(--color-bg-elevated);
+  font-size: var(--fs-label-s);
+  font-weight: var(--fw-semibold);
+}
+.side {
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  gap: 6px;
+  width: 220px;
+  padding-left: 20px;
+  border-left: 1px dashed var(--color-bg-elevated);
+}
+.refernce {
+  font-size: var(--fs-label-s);
+  font-weight: var(--fw-extrabold);
+}
+.total {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  margin: 10px 0 4px;
+  color: var(--color-text-secondary);
+  font-size: var(--fs-body-s);
+}
+.total strong {
+  color: var(--color-text);
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-extrabold);
+}
+.note {
+  color: var(--color-text-secondary);
+  font-size: 11px;
+  text-align: center;
+}

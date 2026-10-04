@@ -1,0 +1,23 @@
+.header {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding-right: 32px;
+}
+.title {
+  font-size: var(--fs-h2);
+  font-weight: var(--fw-extrabold);
+}
+.text {
+  color: var(--color-text-secondary);
+  font-size: var(--fs-body-m);
+}
+.error {
+  color: var(--color-accent);
+  font-size: var(--fs-body-s);
+}
+.actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}

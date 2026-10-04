@@ -3,6 +3,8 @@ import { useSearchParams } from "react-router";
 
 import { useAuth } from "../features/auth/authContext";
 import ProfileForm from "../features/profile/ProfileForm";
+import MyTickets from "../features/profile/MyTickets";
+import { useTickets } from "../features/profile/useTickets";
 import EmptyState from "../components/ui/EmptyState";
 import Button from "../components/ui/Button";
 import styles from "./ProfilePage.module.css";
@@ -16,6 +18,7 @@ function ProfilePage() {
   useEffect(() => {
     if (!isBooting && !user) openLogin();
   }, [isBooting, user]);
+  const upcoming = useTickets("upcoming");
   if (isBooting) return null;
 
   if (!user) {
@@ -51,13 +54,12 @@ function ProfilePage() {
             onClick={() => selectTab("tickets")}
           >
             My Tickets
+            {upcoming.data?.length > 0 && (
+              <span className={styles.count}>{upcoming.data.length}</span>
+            )}
           </button>
         </div>
-        {tab === "info" ? (
-          <ProfileForm key={user.id} />
-        ) : (
-          <p>TICKETS TAB SOON</p>
-        )}
+        {tab === "info" ? <ProfileForm key={user.id} /> : <MyTickets />}
       </div>
     </div>
   );

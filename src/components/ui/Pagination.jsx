@@ -57,9 +57,6 @@ function Pagination({ current, last, onChange }) {
           <img src={arrowDownIcon} alt="" className={styles.next} />
         </button>
       </div>
-      <p className={styles.summary}>
-        Page {current} of {last}
-      </p>
     </nav>
   );
 }
