@@ -75,7 +75,7 @@ export function formatRefundDeadline(dateString, time, hoursBefore = 2) {
   return `${hh}:${mm}, ${formatShortDate(toISODate(deadline))}`;
 }
 export function isoToDisplayDate(iso) {
-  const [year, month, day] = iso.splt("-");
+  const [year, month, day] = iso.split("-");
   return `${day}/${month}/${year}`;
 }
 export function displayToIsoDate(text) {

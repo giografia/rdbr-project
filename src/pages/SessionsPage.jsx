@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { useState } from "react";
 
 import { useAuth } from "../features/auth/authContext";
 import {
@@ -14,6 +15,7 @@ import ErrorState from "../components/ui/ErrorState";
 import EmptyState from "../components/ui/EmptyState";
 import Button from "../components/ui/Button";
 import styles from "./SessionsPage.module.css";
+import BookingModal from "../features/booking/BookingModal";
 
 const SKELETON_GROUPS = 3;
 
@@ -23,6 +25,7 @@ function SessionsPage() {
     useSessionFilters();
   const options = useFilterOptions();
   const sessions = useSessions(filters);
+  const [booking, setBooking] = useState(null);
 
   const meta = sessions.data?.meta;
   const groups = sessions.data?.data ?? [];
@@ -38,9 +41,9 @@ function SessionsPage() {
       setPage(meta.lastPage);
   }, [meta, filters.page]);
 
-  function handleSelect(session) {
+  function handleSelect(movie, session) {
     requireAuth(() => {
-      console.log("BOOKING MODAL GOES HERE", session.id); //ADD BOOKING MODAL
+      setBooking({ movie, session });
     });
   }
   function renderCounter() {
@@ -94,7 +97,7 @@ function SessionsPage() {
             key={movie.id}
             movie={movie}
             sessions={movieSessions}
-            onSelect={handleSelect}
+            onSelect={(session) => handleSelect(movie, session)}
           />
         ))}
         <Pagination
@@ -150,6 +153,13 @@ function SessionsPage() {
           </section>
         </div>
       </div>
+      {booking && (
+        <BookingModal
+          movie={booking.movie}
+          session={booking.session}
+          onClose={() => setBooking(null)}
+        />
+      )}
     </div>
   );
 }

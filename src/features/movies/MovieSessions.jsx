@@ -1,9 +1,11 @@
 import { useSearchParams } from "react-router";
+import { useState } from "react";
 
 import { useAuth } from "../auth/authContext";
 import { useMovieSessions } from "./useMovies";
 import { isAgeRestricted } from "../../utils/age";
 import { formatLongDate, getWeekday } from "../../utils/date";
+import BookingModal from "../booking/BookingModal";
 import DatePicker from "../sessions/DatePicker";
 import SessionTicket from "../sessions/SessionTicket";
 import ErrorState from "../../components/ui/ErrorState";
@@ -25,6 +27,7 @@ function groupByHall(sessions) {
 
 function MovieSessions({ movie }) {
   const { user, requireAuth } = useAuth();
+  const [bookingSession, setBookingSession] = useState(null);
   const [searchParams, setSearchParams] = useSearchParams();
   const dates = movie.availableDates.slice(0, DAYS_SHOWN);
   const dateParam = searchParams.get("date");
@@ -43,7 +46,7 @@ function MovieSessions({ movie }) {
   function handleSelect(session) {
     requireAuth((currentUser) => {
       if (isAgeRestricted(movie, currentUser)) return;
-      // BOOKING MODAL GOES HERE
+      setBookingSession(session);
     });
   }
 
@@ -124,6 +127,13 @@ function MovieSessions({ movie }) {
         </p>
       )}
       {renderBody()}
+      {bookingSession && (
+        <BookingModal
+          movie={movie}
+          session={bookingSession}
+          onClose={() => setBookingSession(null)}
+        />
+      )}
     </section>
   );
 }

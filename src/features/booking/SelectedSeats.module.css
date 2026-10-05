@@ -1,0 +1,106 @@
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-left: 24px;
+  border-left: 1px solid var(--color-bg-elevated);
+}
+.title {
+  font-size: 14px;
+  font-weight: 600;
+}
+.text {
+  margin-top: -8px;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+}
+.list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 0;
+  list-style: none;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  padding: 15px;
+  border-radius: 16px;
+  background: var(--color-bg-surface);
+}
+.cardTop {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.seatCode {
+  flex: 1;
+  font-size: 14px;
+  font-weight: 600;
+}
+.price {
+  font-size: 14px;
+  font-weight: 600;
+}
+.remove {
+  display: flex;
+  padding: 4px;
+  border: none;
+  border-radius: 6px;
+  background: transparent;
+  cursor: pointer;
+}
+.remove img {
+  width: 14px;
+  height: 14px;
+}
+.types {
+  display: flex;
+  gap: 6px;
+}
+.type {
+  flex: 1;
+  padding: 6px 8px;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 999px;
+  background: transparent;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+  cursor: pointer;
+  transition: background-color 300ms ease-out;
+}
+.type:hover:not(:disabled) {
+  color: var(--color-text-primary);
+}
+.typeActive {
+  background: var(--color-accent);
+  border-color: var(--color-accent);
+  color: var(--color-text-primary);
+}
+.type:disabled {
+  opacity: 0.35;
+  cursor: not-allowed;
+}
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: auto;
+}
+.subtotal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.subtotal strong {
+  color: var(--color-text-primary);
+  font-size: 24px;
+  font-weight: 800;
+}
