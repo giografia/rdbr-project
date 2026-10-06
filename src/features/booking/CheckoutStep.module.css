@@ -1,0 +1,100 @@
+.body {
+  display: grid;
+  grid-template-columns: 1fr 345px;
+  gap: 32px;
+}
+.main {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 0;
+}
+.fields {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+.panel {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  padding-left: 24px;
+  border-left: 1px solid var(--color-bg-elevated);
+}
+.panelTitle {
+  font-size: 14px;
+  font-weight: 600;
+}
+.divider {
+  margin: 8px 0;
+  border: none;
+  border-top: 1px solid var(--color-bg-elevated);
+}
+.summary {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 15px;
+  border-radius: 16px;
+  background: var(--color-bg-surface);
+}
+.movieTitle {
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+.meta {
+  color: var(--color-text-secondary);
+  font-size: 12px;
+}
+.lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin-top: 8px;
+  padding-top: 12px;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+.line {
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  font-size: 12px;
+}
+.line dt {
+  color: var(--color-text-secondary);
+}
+.line dd {
+  font-weight: 600;
+  text-align: right;
+}
+.footer {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: auto;
+}
+.subtotal {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.subtotal strong {
+  color: var(--color-text-primary);
+  font-size: 24px;
+  font-weight: 800;
+}
+.actions {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}

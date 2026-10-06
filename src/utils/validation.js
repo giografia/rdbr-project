@@ -34,3 +34,26 @@ export function validateDateOfBirth(value) {
     return "You must be at least 12 years old to create an account";
   return true;
 }
+export function validateCardNumber(value) {
+  const digits = value.replace(/\s/g, "");
+  return /^\d{16}$/.test(digits) || "Card number must be 16 digits";
+}
+export function validateExpiry(value) {
+  const match = value.trim().match(/^(\d{2})\/(\d{2})$/);
+  if (!match) return "Use the MM/YY format";
+
+  const month = Number(match[1]);
+  const year = 2000 + Number(match[2]);
+  if (month < 1 || month > 12) return "Month must be between 01 and 12";
+
+  const now = new Date();
+  const thisYear = now.getFullYear();
+  const thisMonth = now.getMonth() + 1;
+  if (year < thisYear || (year === thisYear && month < thisMonth)) {
+    return "This card has expired";
+  }
+  return true;
+}
+export function validateCvv(value) {
+  return /^\d{3}$/.test(value.trim()) || "CVV must be 3 digits";
+}

@@ -1,16 +1,15 @@
 import Button from "../../components/ui/Button";
 import closeIcon from "../../assets/icons/close.svg";
 import styles from "./SelectedSeats.module.css";
+import { formatPrice } from "../../utils/price";
 
-function formatPrice(amount) {
-  return `₾${Math.round(amount * 100) / 100}`;
-}
 function SelectedSeats({
   selected,
   ticketTypes,
   basePrice,
   minAge,
   maxSeats,
+  isLoading,
   onChangeType,
   onRemove,
   onNext,
@@ -79,7 +78,12 @@ function SelectedSeats({
           <span>Subtotal</span>
           <strong>{formatPrice(subtotal)}</strong>
         </div>
-        <Button fullWidth disabled={selected.length === 0} onClick={onNext}>
+        <Button
+          fullWidth
+          loading={isLoading}
+          disabled={selected.length === 0}
+          onClick={onNext}
+        >
           Next: Checkout
         </Button>
       </div>
