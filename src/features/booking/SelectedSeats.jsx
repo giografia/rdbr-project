@@ -46,6 +46,7 @@ function SelectedSeats({
                 type="button"
                 className={styles.remove}
                 onClick={() => onRemove(seat.id)}
+                disabled={isLoading}
                 aria-label={`Remove seat ${seat.code}`}
               >
                 <img src={closeIcon} alt="" />
@@ -61,7 +62,7 @@ function SelectedSeats({
                   <button
                     key={type.slug}
                     type="button"
-                    disabled={isBlocked}
+                    disabled={isBlocked || isLoading}
                     className={`${styles.type} ${seat.ticketType === type.slug ? styles.typeActive : ""}`}
                     onClick={() => onChangeType(seat.id, type.slug)}
                   >
@@ -80,8 +81,7 @@ function SelectedSeats({
         </div>
         <Button
           fullWidth
-          loading={isLoading}
-          disabled={selected.length === 0}
+          disabled={selected.length === 0 || isLoading}
           onClick={onNext}
         >
           Next: Checkout

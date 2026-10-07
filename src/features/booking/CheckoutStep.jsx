@@ -10,21 +10,11 @@ import {
   validateExpiry,
   validateCvv,
 } from "../../utils/validation";
+import { countTickets } from "../../utils/tickets";
 
 import Input from "../../components/ui/Input";
 import Button from "../../components/ui/Button";
 import styles from "./CheckoutStep.module.css";
-
-function countTickets(seats) {
-  const counts = {};
-  seats.forEach((seat) => {
-    const name = seat.ticketType.name;
-    counts[name] = (counts[name] ?? 0) + 1;
-  });
-  return Object.entries(counts)
-    .map(([name, count]) => `${count} x ${name}`)
-    .join(", ");
-}
 
 function CheckoutStep({
   movie,
@@ -40,6 +30,7 @@ function CheckoutStep({
   const {
     register,
     handleSubmit,
+    setError,
     formState: { errors, touchedFields, isValid },
   } = useForm({
     mode: "onTouched",
@@ -56,7 +47,11 @@ function CheckoutStep({
     return touchedFields[name] && !errors[name];
   }
   return (
-    <form className={styles.body} onSubmit={handleSubmit(onPay)} noValidate>
+    <form
+      className={styles.body}
+      onSubmit={handleSubmit((values) => onPay(values, setError))}
+      noValidate
+    >
       <div className={styles.main}>
         {children}
 

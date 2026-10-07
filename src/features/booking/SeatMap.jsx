@@ -1,7 +1,7 @@
 import { Fragment } from "react";
 import styles from "./SeatMap.module.css";
 
-function Seat({ seat, isSelected, onToggle }) {
+function Seat({ seat, isSelected, onToggle, disabled }) {
   if (seat.state === "unavailable") {
     return <span className={styles.gap} />;
     //if no seat exists, keep the space so grid stays perfect
@@ -14,7 +14,7 @@ function Seat({ seat, isSelected, onToggle }) {
     <button
       type="button"
       className={`${styles.seat} ${styles[state]} ${isSelected ? styles.selected : ""}`}
-      disabled={!canClick}
+      disabled={!canClick || disabled}
       onClick={() => onToggle(seat)}
       aria-pressed={isSelected}
       aria-label={`Seat ${seat.code}`}
@@ -23,7 +23,7 @@ function Seat({ seat, isSelected, onToggle }) {
     </button>
   );
 }
-function SeatMap({ sections, selectedIds, onToggle }) {
+function SeatMap({ sections, selectedIds, onToggle, disabled }) {
   return (
     <div className={styles.map}>
       <div className={styles.screen}>Screen</div>
@@ -47,6 +47,7 @@ function SeatMap({ sections, selectedIds, onToggle }) {
                         seat={seat}
                         isSelected={selectedIds.includes(seat.id)}
                         onToggle={onToggle}
+                        disabled={disabled}
                       />
                       {seat.aisleAfter && <span className={styles.aisle} />}
                     </Fragment>

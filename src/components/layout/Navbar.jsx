@@ -3,9 +3,9 @@ import { Link, NavLink } from "react-router";
 import { useAuth } from "../../features/auth/authContext";
 
 import styles from "./Navbar.module.css";
-import searchIcon from "../../assets/icons/search.svg";
 import Button from "../ui/Button";
 import UserMenu from "./UserMenu";
+import SearchBox from "../../features/search/SearchBox";
 
 function Navbar({ overlay = false }) {
   const { user, isBooting, openLogin, openRegister } = useAuth();
@@ -24,10 +24,7 @@ function Navbar({ overlay = false }) {
         </div>
 
         <div className={styles.right}>
-          <label className={styles.search}>
-            <img src={searchIcon} alt="" />
-            <input type="text" placeholder="Search films and live events" />
-          </label>
+          <SearchBox />
           {!isBooting &&
             (user ? (
               <UserMenu />

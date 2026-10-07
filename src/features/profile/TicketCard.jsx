@@ -36,9 +36,6 @@ function TicketCard({ order, onRefund }) {
             <dd className={styles.value}>
               {formatShortDate(session.date)} · {session.time}
             </dd>
-            <dd className={styles.value}>
-              {formatShortDate(session.date)} · {session.time}
-            </dd>
           </div>
           <div>
             <dt className={styles.label}>Venue</dt>
@@ -76,6 +73,7 @@ function TicketCard({ order, onRefund }) {
         <Button
           variant="ghost"
           fullWidth
+          className={styles.refund}
           disabled={!canRefund}
           title={order.isUpcoming && !order.isRefundable ? MESSAGE : undefined}
           onClick={() => onRefund(order)}

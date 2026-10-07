@@ -19,7 +19,7 @@ function RecentlyViewedCard({ movie }) {
       <div className={styles.body}>
         <h3 className={styles.title}>{movie.title}</h3>
         <p className={styles.meta}>{meta}</p>
-        <Badge variant="accent">{movie.ageRating.code}</Badge>
+        {movie.ageRating && <Badge variant="accent">{movie.ageRating}</Badge>}
       </div>
     </Link>
   );

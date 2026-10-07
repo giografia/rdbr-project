@@ -1,0 +1,137 @@
+.confirmation {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  width: 100%;
+  max-width: 670px;
+  margin: 0 auto;
+  padding: 24px 0;
+  text-align: center;
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background: #22c55e;
+}
+
+.icon img {
+  width: 28px;
+  height: 28px;
+  filter: brightness(0) invert(1); /* green icon → white */
+}
+
+.heading {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 800;
+}
+
+.text {
+  color: var(--color-text-secondary);
+  font-size: 14px;
+}
+
+.reference {
+  padding: 6px 40px;
+  border-radius: 999px;
+  background: var(--color-bg-elevated);
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  padding: 16px;
+  border-radius: 16px;
+  background: var(--color-bg-surface);
+  text-align: left;
+}
+
+.movie {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding-bottom: 12px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.poster {
+  width: 40px;
+  height: 56px;
+  flex-shrink: 0;
+  border-radius: 6px;
+  object-fit: cover;
+}
+
+.movieTitle {
+  font-size: 14px;
+  font-weight: 800;
+  text-transform: uppercase;
+}
+
+.meta {
+  margin-top: 4px;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+}
+
+.lines {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.line {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  font-size: 12px;
+}
+
+.line dt {
+  color: var(--color-text-secondary);
+}
+
+.line dd {
+  font-weight: 600;
+  text-align: right;
+}
+
+.total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 12px;
+  color: var(--color-text-secondary);
+  font-size: 12px;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.total strong {
+  color: var(--color-text-primary);
+  font-size: 20px;
+  font-weight: 800;
+}
+
+.actions {
+  display: flex;
+  justify-content: center;
+  gap: 12px;
+}
