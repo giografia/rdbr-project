@@ -8,6 +8,10 @@ export class ApiError extends Error {
     this.data = data;
   }
 }
+let onUnauthorized = null;
+export function setUnauthorizedHandler(handler) {
+  onUnauthorized = handler;
+}
 export async function apiFetch(path, { method = "GET", body } = {}) {
   const token = localStorage.getItem("token");
   const headers = { Accept: "application/json" };
@@ -30,6 +34,11 @@ export async function apiFetch(path, { method = "GET", body } = {}) {
   const text = await response.text();
   const data = text ? JSON.parse(text) : null;
 
-  if (!response.ok) throw new ApiError(response.status, data);
+  if (!response.ok) {
+    if (response.status === 401 && token && onUnauthorized) {
+      onUnauthorized();
+    }
+    throw new ApiError(response.status, data);
+  }
   return data;
 }

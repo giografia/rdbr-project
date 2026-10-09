@@ -4,6 +4,7 @@ import * as authApi from "../../api/auth";
 import { AuthContext } from "./authContext";
 import LoginModal from "./LoginModal";
 import RegisterModal from "./RegisterModal";
+import { setUnauthorizedHandler } from "../../api/client";
 
 export function AuthProvider({ children }) {
   const [user, setUser] = useState(null);
@@ -12,6 +13,15 @@ export function AuthProvider({ children }) {
   );
   const [activeModal, setActiveModal] = useState(null);
   const pendingAction = useRef(null);
+
+  useEffect(() => {
+    setUnauthorizedHandler(() => {
+      localStorage.removeItem("token");
+      setUser(null);
+      setActiveModal("login");
+    });
+    return () => setUnauthorizedHandler(null);
+  }, []);
 
   useEffect(() => {
     if (!localStorage.getItem("token")) return;

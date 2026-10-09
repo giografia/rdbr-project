@@ -54,9 +54,9 @@ function Confirmation({ order, movie, session, hall, onViewTickets, onClose }) {
       </div>
 
       <div className={styles.actions}>
-        <Button onClick={onViewTickets}>My Tickets</Button>
+        <Button onClick={onViewTickets}>View my tickets</Button>
         <Button variant="ghost" onClick={onClose}>
-          Close
+          Back to home
         </Button>
       </div>
     </div>
