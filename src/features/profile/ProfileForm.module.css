@@ -17,6 +17,8 @@
 .complete {
   background: var(--tint-success);
   color: var(--color-success);
+  display: flex;
+  gap: 5px;
 }
 .field {
   display: flex;
